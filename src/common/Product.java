@@ -1,6 +1,8 @@
 package common;
 
-public abstract class Product {
+import java.io.Serializable;
+
+public abstract class Product implements Serializable{
 	
 	private String id;
 	private String title;
@@ -8,6 +10,7 @@ public abstract class Product {
 	
 	
 	public Product(String title, Person person) {
+		id = IdGenerator.generate(this);
 		this.title = title;
 		this.person = person;
 	}
@@ -19,12 +22,11 @@ public abstract class Product {
 		return person;
 	}
 	
-	public void setId(String id) {
-		this.id = id;
-	}
+	
 	public String getId() {
 		return id;
 	}
+	
 	public abstract long getInvestment();
 	
 }

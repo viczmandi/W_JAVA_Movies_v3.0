@@ -1,8 +1,17 @@
 package common;
 
-public class Book extends Product {
+import java.io.Serializable;
+
+public class Book extends Product implements Serializable{
+	
+	private static final long serialVersionUID = 2776841944041776719L;
 	
 	private Person author;
+	
+	public Book(String title, Person person, Person author) {
+		super(title, person);
+		this.author = author;
+	}
 
 	public Person getAuthor() {
 		return author;
@@ -16,10 +25,6 @@ public class Book extends Product {
 		return author.getSalary();
 	}
 
-	public Book(String title, Person person, Person author) {
-		super(title, person);
-		this.author = author;
-	}
 	
 	@Override
 	public String toString(){

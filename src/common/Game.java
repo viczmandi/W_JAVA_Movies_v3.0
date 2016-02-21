@@ -1,9 +1,12 @@
 package common;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Game extends Product implements Buyable{
+public class Game extends Product implements Buyable, Serializable{
+
+	private static final long serialVersionUID = 7185883857552662532L;
 	
 	private boolean preOrdered;
 	private List<Person> staff = new ArrayList<Person>();
@@ -30,9 +33,9 @@ public class Game extends Product implements Buyable{
 	public int getPrice() {
 		if (preOrdered) {
 			return (int) (price * 0.8);
-		}else{
-			return price;
 		}
+		return price;
+		
 	}
 	public void setPrice(int price) {
 		this.price = price;

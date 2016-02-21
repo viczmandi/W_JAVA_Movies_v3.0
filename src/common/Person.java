@@ -1,6 +1,10 @@
 package common;
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable{
+	
+	private static final long serialVersionUID = 5501388371343298786L;
 	
 	private String firstName;
 	private String lastName;
